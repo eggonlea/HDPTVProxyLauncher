@@ -12,7 +12,7 @@
  * the License.
  */
 
-package com.example.androidtvproxylauncher;
+package com.example.hdptvproxylauncher;
 
 import android.app.Activity;
 import android.content.ComponentName;
