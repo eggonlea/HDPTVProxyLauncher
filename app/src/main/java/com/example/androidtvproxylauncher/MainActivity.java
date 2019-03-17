@@ -15,16 +15,26 @@
 package com.example.androidtvproxylauncher;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 /*
  * Main Activity class that loads {@link MainFragment}.
  */
 public class MainActivity extends Activity {
+    private static final String TAG = "ActivityManager";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String pkg = "com.lego.android.tvleanback";
+        String cls = "com.example.android.tvleanback.ui.MainActivity";
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setComponent(new ComponentName(pkg,cls));
+        Log.i(TAG, "Launching " + pkg + "/" + cls);
+        startActivity(intent);
     }
 }
