@@ -29,11 +29,16 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        String pkg = "com.lego.android.tvleanback";
-        String cls = "com.example.android.tvleanback.ui.MainActivity";
+
+        // com.lego.android.tvleanback/com.example.android.tvleanback.ui.MainActivity
+        // hdpfans.com/com.hdpfans.app.ui.main.MainActivity
+        // com.dianshijia.newlive/com.dianshijia.newlive.entry.SplashActivity
+        String pkg = "hdpfans.com";
+        String cls = "com.hdpfans.app.ui.main.MainActivity";
+        Log.i(TAG, "Launching " + pkg + "/" + cls);
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setComponent(new ComponentName(pkg,cls));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
         Log.i(TAG, "Launching " + pkg + "/" + cls);
         startActivity(intent);
     }
